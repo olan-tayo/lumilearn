@@ -16,7 +16,6 @@ import CardPayment from "@/containers/Checkout/CardPayment";
 import { TCart } from "@/types/cart";
 import { useCartStore } from "@/store/cart/cart";
 import { CardType } from "@/utils/detectCardType";
-import Modal from "@/components/Modal";
 
 const CheckoutPage = () => {
   const { cardType } = useCartStore() as TCart;
@@ -80,7 +79,7 @@ const CheckoutPage = () => {
                 return (
                   <div
                     key={payment.id}
-                    className="border border-border rounded-xl p-6 cursor-pointer hover:border-primary transition-colors"
+                    className="border border-border rounded-xl py-6 px-3 lg:px-6 cursor-pointer hover:border-primary transition-colors"
                   >
                     <div
                       className="flex items-center justify-between"
