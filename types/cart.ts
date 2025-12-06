@@ -11,4 +11,5 @@ export type TCart = {
   removeFromCart: (course: TCoursesResponse) => void;
   handleCheckout(data: TCheckoutDetails): void;
   getCardType(data: CardType | null): void;
+  resetState: () => void;
 };

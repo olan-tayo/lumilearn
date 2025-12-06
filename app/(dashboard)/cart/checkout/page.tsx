@@ -16,6 +16,7 @@ import CardPayment from "@/containers/Checkout/CardPayment";
 import { TCart } from "@/types/cart";
 import { useCartStore } from "@/store/cart/cart";
 import { CardType } from "@/utils/detectCardType";
+import Modal from "@/components/Modal";
 
 const CheckoutPage = () => {
   const { cardType } = useCartStore() as TCart;

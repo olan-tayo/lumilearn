@@ -1,5 +1,6 @@
 "use client";
 
+import LumilearnPageLoader from "@/components/Loader";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
@@ -9,7 +10,11 @@ const Main = () => {
   useEffect(() => {
     router.replace("/discover");
   }, [router]);
-  return <div>Main</div>;
+  return (
+    <div className="flex justify-center items-center h-screen">
+      <LumilearnPageLoader />
+    </div>
+  );
 };
 
 export default Main;
