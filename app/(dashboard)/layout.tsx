@@ -28,7 +28,7 @@ export default function SidebarLayout({
         {/*--------- CHILDREN ---------- */}
         <div className=" relative w-full">
           <Nav isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-          <div className="overflow-y-auto max-h-[90vh]">
+          <div className="overflow-y-auto h-full lg:max-h-[90vh]">
             <div className="p-5 ">{children}</div>
           </div>
         </div>
