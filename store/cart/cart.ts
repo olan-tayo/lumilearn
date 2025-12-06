@@ -72,6 +72,8 @@ export const useCartStore = create(
           cardType: data,
         }));
       },
+
+      resetState: () => set(() => ({ ...initialState })),
     }),
     {
       name: "cart",

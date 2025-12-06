@@ -6,7 +6,7 @@ import { TCart } from "@/types/cart";
 import { TCoursesResponse } from "@/types/courses";
 import { usePathname, useRouter } from "next/navigation";
 
-const OrderSummary = ({ isFormValid }: { isFormValid: boolean }) => {
+const OrderSummary = ({ isFormValid }: { isFormValid?: boolean }) => {
   const router = useRouter();
   const location = usePathname();
   const { cart } = useCartStore() as TCart;
