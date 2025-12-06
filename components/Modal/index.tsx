@@ -14,7 +14,7 @@ const Modal = ({ isOpen }: { isOpen: boolean }) => {
     <div
       className={`${
         isOpen
-          ? "fixed inset-0 flex items-center justify-center z-100 opacity-[30px] bg-[#0000003D] backdrop-blur-sm px-4 md:px-0 "
+          ? "fixed inset-0 flex items-center justify-center z-100 bg-[#0000003D] backdrop-blur-sm px-4 md:px-0 "
           : "hidden"
       } `}
     >

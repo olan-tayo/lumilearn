@@ -6,6 +6,8 @@ import { useCartStore } from "@/store/cart/cart";
 import { TCart } from "@/types/cart";
 import { TCoursesResponse } from "@/types/courses";
 import EmptyCourse from "./EmptyCourse";
+import { useState } from "react";
+import { useDebouncedCallback } from "use-debounce";
 
 export const CoursesComponent = ({
   coursesData,
@@ -13,24 +15,45 @@ export const CoursesComponent = ({
   coursesData: TCoursesResponse[];
 }) => {
   const { addToCart, cart } = useCartStore() as TCart;
+  const [searchValue, setSearchValue] = useState("");
+  const [courses, setCourses] = useState<TCoursesResponse[]>(coursesData);
 
   const isCourseIncart = (course: TCoursesResponse) => {
     return cart.some((item: TCoursesResponse) => item?.slug === course?.slug);
   };
 
+  const debouncedSearch = useDebouncedCallback((value: string) => {
+    if (value.trim() === "") {
+      setCourses(coursesData);
+      return;
+    }
+
+    setCourses(
+      coursesData.filter((course) =>
+        course.title.toLowerCase().includes(value.toLowerCase())
+      )
+    );
+  }, 500);
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchValue(value);
+    debouncedSearch(value);
+  };
+
   return (
     <>
-      {coursesData?.length < 1 ? (
+      {courses?.length < 1 ? (
         <EmptyCourse />
       ) : (
         <>
           <div className="mt-6 my-4">
-            <SearchComponent />
+            <SearchComponent value={searchValue} onChange={handleSearch} />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3.5">
             <>
-              {coursesData?.map((course: TCoursesResponse, index: number) => {
+              {courses?.map((course: TCoursesResponse, index: number) => {
                 const alreadyInCart = isCourseIncart(course);
 
                 return (

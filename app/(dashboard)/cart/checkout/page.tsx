@@ -6,7 +6,6 @@ import PageHeaderComponent from "@/components/PageHeader";
 import Safety from "../../../../public/assets/icons/safety.svg";
 import Card from "../../../../public/assets/icons/bank_card.svg";
 import Transfer from "../../../../public/assets/icons/bank_line.svg";
-import CardProvider from "../../../../public/assets/icons/Frame 1618873085.svg";
 import Verve from "../../../../public/assets/icons/verve.svg";
 import Visa from "../../../../public/assets/icons/visa.svg";
 import Mastercard from "../../../../public/assets/icons/mastercard.svg";
@@ -24,7 +23,7 @@ const CheckoutPage = () => {
       id: 1,
       label: "Credit/Debit card payment",
       icon: Card,
-      provider: CardProvider,
+      provider: true,
     },
     {
       id: 2,

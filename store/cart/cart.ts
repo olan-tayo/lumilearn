@@ -27,7 +27,7 @@ export const useCartStore = create(
 
       addToCart: (course: TCoursesResponse) => {
         set((state: TCart) => ({
-          ...initialState,
+          ...state,
           cart: [...state.cart, course],
         }));
         toast.success(`Course(${course.title}) added to cart`, {
@@ -43,7 +43,7 @@ export const useCartStore = create(
 
       removeFromCart: (course: TCoursesResponse) => {
         set((state: TCart) => ({
-          ...initialState,
+          ...state,
           cart: state.cart.filter(
             (item: TCoursesResponse) => item.slug !== course.slug
           ),

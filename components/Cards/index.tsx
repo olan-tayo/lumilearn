@@ -169,7 +169,7 @@ const CardComponent = ({
           onClick={onDeleteCourse}
           src={Delete}
           alt="Delete Icon"
-          className="cursor-pointer"
+          className="cursor-pointer w-5 h-5 md:w-6 md:h-6 "
           width={24}
           height={24}
         />
