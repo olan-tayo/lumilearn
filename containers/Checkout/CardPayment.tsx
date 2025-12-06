@@ -2,12 +2,11 @@ import TextInput from "@/components/Input/TextInput";
 import { useForm, SubmitHandler, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CardPaymentValidator } from "@/validators/CardPaymentValidator";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useCartStore } from "@/store/cart/cart";
 import { TCart } from "@/types/cart";
 import { TCheckoutDetails } from "@/types/courses";
 import { detectCardType } from "@/utils/detectCardType";
-import Modal from "@/components/Modal";
 
 export type TFormInput = {
   name: string;
@@ -25,9 +24,8 @@ const CardPayment = ({
   className?: string;
   onValidityChange?: (isValid: boolean) => void;
 }) => {
-  const { handleCheckout, getCardType } = useCartStore() as TCart;
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { handleCheckout, getCardType, handleOpenModal } =
+    useCartStore() as TCart;
 
   // ------React hook form setup------
   const {
@@ -47,7 +45,7 @@ const CardPayment = ({
 
   const onSubmit: SubmitHandler<TFormInput> = (data: TCheckoutDetails) => {
     handleCheckout(data);
-    setIsModalOpen(true);
+    handleOpenModal(true);
   };
 
   useEffect(() => {
@@ -131,8 +129,6 @@ const CardPayment = ({
           </p>
         </div>
       </form>
-
-      <Modal isOpen={isModalOpen} />
     </>
   );
 };

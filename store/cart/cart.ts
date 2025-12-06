@@ -10,6 +10,7 @@ const initialState = {
   loading: false,
   error: null,
   cardType: null,
+  isOpenModal: false,
   checkoutDetails: {
     name: "",
     number: "",
@@ -70,6 +71,13 @@ export const useCartStore = create(
         set((state: TCart) => ({
           ...state,
           cardType: data,
+        }));
+      },
+
+      handleOpenModal: (status: boolean) => {
+        set((state: TCart) => ({
+          ...state,
+          isOpenModal: status,
         }));
       },
 

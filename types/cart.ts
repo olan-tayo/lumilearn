@@ -7,9 +7,11 @@ export type TCart = {
   error: string | null;
   cardType: CardType;
   checkoutDetails: TCheckoutDetails;
+  isOpenModal: boolean;
   addToCart: (course: TCoursesResponse) => void;
   removeFromCart: (course: TCoursesResponse) => void;
   handleCheckout(data: TCheckoutDetails): void;
   getCardType(data: CardType | null): void;
   resetState: () => void;
+  handleOpenModal: (status: boolean) => void;
 };
