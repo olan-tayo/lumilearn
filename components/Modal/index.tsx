@@ -14,11 +14,11 @@ const Modal = ({ isOpen }: { isOpen: boolean }) => {
     <div
       className={`${
         isOpen
-          ? "fixed inset-0 flex items-center justify-center z-100 opacity-[30px] bg-[#0000003D] backdrop-blur-sm "
+          ? "fixed inset-0 flex items-center justify-center z-100 opacity-[30px] bg-[#0000003D] backdrop-blur-sm px-4 md:px-0 "
           : "hidden"
       } `}
     >
-      <div className="bg-white w-[471px] h-[461px] rounded-lg flex flex-col justify-center items-center p-6 gap-5">
+      <div className="bg-white w-[471px] h-fit rounded-lg flex flex-col justify-center items-center px-6 pt-6 pb-12 gap-5">
         <div className="mb-2">
           <Image
             src={celebration}
