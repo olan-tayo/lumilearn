@@ -15,7 +15,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "LumiLearn | Assessment",
-  description: "LumiLearn Assessment Platform",
+  description:
+    "A modern e-learning platform built with Next.js 16, featuring course discovery, shopping cart functionality, and a seamless checkout experience.",
 };
 
 export default function RootLayout({
