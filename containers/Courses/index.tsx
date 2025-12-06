@@ -29,26 +29,28 @@ export const CoursesComponent = ({
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3.5">
-            {coursesData?.map((course: TCoursesResponse, index: number) => {
-              const alreadyInCart = isCourseIncart(course);
+            <>
+              {coursesData?.map((course: TCoursesResponse, index: number) => {
+                const alreadyInCart = isCourseIncart(course);
 
-              return (
-                <CardComponent
-                  coverImage={course?.cover_image_url || ""}
-                  key={course.slug + index}
-                  title={course?.title || "Not Available"}
-                  authorName={course?.tutor?.name || "Unknown"}
-                  price={course?.price?.toLocaleString() || "0"}
-                  authorImg={course?.tutor?.avatar || ""}
-                  ratingValue={course?.rating || 0}
-                  type={course?.type || ""}
-                  duration={course?.duration || 0}
-                  duration_type={course?.duration_type || ""}
-                  onClick={() => addToCart(course)}
-                  isAlreadyInCart={alreadyInCart}
-                />
-              );
-            })}
+                return (
+                  <CardComponent
+                    coverImage={course?.cover_image_url || ""}
+                    key={course.slug + index}
+                    title={course?.title || "Not Available"}
+                    authorName={course?.tutor?.name || "Unknown"}
+                    price={course?.price?.toLocaleString() || "0"}
+                    authorImg={course?.tutor?.avatar || ""}
+                    ratingValue={course?.rating || 0}
+                    type={course?.type || ""}
+                    duration={course?.duration || 0}
+                    duration_type={course?.duration_type || ""}
+                    onClick={() => addToCart(course)}
+                    isAlreadyInCart={alreadyInCart}
+                  />
+                );
+              })}{" "}
+            </>
           </div>
         </>
       )}
