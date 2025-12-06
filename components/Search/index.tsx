@@ -18,7 +18,7 @@ const SearchComponent = ({
         id="search"
         value={value}
         placeholder="Search for a course"
-        className="w-full h-full rounded-[1000px] outline-none text-xs text-text-secondary"
+        className="w-full h-full rounded-[1000px] outline-none text-base text-text-secondary placeholder:text-sm"
       />
     </div>
   );
