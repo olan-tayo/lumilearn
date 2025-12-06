@@ -15,9 +15,10 @@ import CardPayment from "@/containers/Checkout/CardPayment";
 import { TCart } from "@/types/cart";
 import { useCartStore } from "@/store/cart/cart";
 import { CardType } from "@/utils/detectCardType";
+import Modal from "@/components/Modal";
 
 const CheckoutPage = () => {
-  const { cardType } = useCartStore() as TCart;
+  const { cardType, isOpenModal } = useCartStore() as TCart;
   const paymentMethods = [
     {
       id: 1,
@@ -149,10 +150,15 @@ const CheckoutPage = () => {
           </div>
 
           <div className=" w-full md:w-[35%]">
-            <OrderSummary isFormValid={isFormValid} />
+            <OrderSummary
+              isFormValid={isFormValid}
+              selectedPaymentMethod={selectedPaymentMethod}
+            />
           </div>
         </div>
       </div>
+
+      <Modal isOpen={isOpenModal} />
     </div>
   );
 };

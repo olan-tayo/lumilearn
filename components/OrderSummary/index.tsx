@@ -6,10 +6,32 @@ import { TCart } from "@/types/cart";
 import { TCoursesResponse } from "@/types/courses";
 import { usePathname, useRouter } from "next/navigation";
 
-const OrderSummary = ({ isFormValid }: { isFormValid?: boolean }) => {
+const OrderSummary = ({
+  isFormValid,
+  selectedPaymentMethod,
+}: {
+  isFormValid?: boolean;
+  selectedPaymentMethod?: string | null;
+}) => {
   const router = useRouter();
   const location = usePathname();
-  const { cart } = useCartStore() as TCart;
+  const { cart, handleOpenModal } = useCartStore() as TCart;
+
+  const isCheckout = location === "/cart/checkout";
+  const isCardPaymentSelected =
+    selectedPaymentMethod === "Credit/Debit card payment";
+  const isBankTransferSelected = selectedPaymentMethod === "Bank Transfers";
+
+  const handleButtonClick = () => {
+    if (!isCheckout) {
+      router.push("/cart/checkout");
+      return;
+    }
+
+    if (isBankTransferSelected) {
+      handleOpenModal(true);
+    }
+  };
 
   const totalPrice =
     cart?.reduce(
@@ -44,18 +66,20 @@ const OrderSummary = ({ isFormValid }: { isFormValid?: boolean }) => {
 
       <PrimaryButton
         className="mt-6"
-        type={location == "/cart/checkout" ? "submit" : "button"}
-        form={location == "/cart/checkout" ? "card-payment-form" : ""}
-        disabled={location == "/cart/checkout" ? !isFormValid : false}
-        onClick={
-          location !== "/cart/checkout"
-            ? () => router.push("/cart/checkout")
-            : undefined
+        type={isCheckout ? "submit" : "button"}
+        form={isCheckout ? "card-payment-form" : ""}
+        disabled={
+          isCheckout
+            ? isCardPaymentSelected
+              ? !isFormValid
+              : !selectedPaymentMethod
+            : false
         }
-        icon={location == "/cart/checkout" ? false : true}
+        onClick={isCardPaymentSelected ? undefined : handleButtonClick}
+        icon={!isCheckout}
       >
-        {location == "/cart/checkout"
-          ? `Pay ₦${totalPrice.toLocaleString()}}`
+        {isCheckout
+          ? `Pay ₦${totalPrice.toLocaleString()}`
           : "Proceed to Checkout"}
       </PrimaryButton>
       <p className="text-secondary-text text-xs tracking-[-0.2px] text-center mt-[15px]">
