@@ -19,7 +19,7 @@ const TextInput = React.forwardRef<
         type={type}
         placeholder={placeholder}
         {...props}
-        className={`text-sm placeholder:text-placeholder ${
+        className={` placeholder:text-placeholder text-base ${
           type === "checkbox"
             ? "w-4 h-4 rounded-sm outline-none p-0 accent-primary border-[1.5px] border-text-secondary cursor-pointer appearance-none bg-white checked:bg-primary"
             : "w-full rounded-[10000px] px-3.5 py-[15px] focus:outline-none focus:ring-1 focus:ring-primary border border-border"
