@@ -25,9 +25,7 @@ const TextInput = React.forwardRef<
             : "w-full rounded-[10000px] px-3.5 py-[15px] focus:outline-none focus:ring-1 focus:ring-primary border border-border"
         }`}
       />
-      {error && (
-        <p className="text-sm text-red-600 absolute pt-0.5 ">{error}</p>
-      )}
+      {error && <p className="text-sm text-red-600  pt-0.5 ">{error}</p>}
     </div>
   );
 });
