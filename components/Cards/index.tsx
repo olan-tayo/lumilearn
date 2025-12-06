@@ -69,7 +69,7 @@ const CardComponent = ({
               : "px-2"
           }  bg-white pb-4 flex flex-col gap-3`}
         >
-          <h3 className="font-medium text-[15px] md:text-base capitalize text-text">
+          <h3 className="font-medium text-base capitalize text-text">
             {title}
           </h3>
 
@@ -109,9 +109,7 @@ const CardComponent = ({
           </div>
 
           {/* ----course price---- */}
-          <p className="text-[15px] md:text-base font-semibold text-text-primary">
-            ₦{price}
-          </p>
+          <p className="text-base font-semibold text-text-primary">₦{price}</p>
 
           {/* ----course type---- */}
           <div className="flex  flex-wrap gap-1 items-start md:items-center">

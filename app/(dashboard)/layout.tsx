@@ -16,11 +16,9 @@ export default function SidebarLayout({
       <div className="flex w-full gap-0.5 ">
         {/*--------- SIDEBAR ---------- */}
         <div
-          className={`${
-            isMenuOpen
-              ? "block lg:block absolute lg:relative z-90 "
-              : "hidden lg:block relative"
-          } w-[200px] lg:w-[300px] min-h-screen overflow-hidden bg-white`}
+          className={`fixed z-100 inset-y-0 left-0 lg:static  w-[300px] min-h-screen bg-white transform transition-transform duration-300 ease-in-out ${
+            isMenuOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
+          }`}
         >
           <Sidebar setIsMenuOpen={setIsMenuOpen} />
         </div>
@@ -28,7 +26,7 @@ export default function SidebarLayout({
         {/*--------- CHILDREN ---------- */}
         <div className=" relative w-full">
           <Nav isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-          <div className="overflow-y-auto h-full lg:max-h-[90vh]">
+          <div className="overflow-y-auto h-full lg:max-h-[90vh] mt-16 lg:mt-0">
             <div className="p-5 ">{children}</div>
           </div>
         </div>

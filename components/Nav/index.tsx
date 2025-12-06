@@ -13,7 +13,7 @@ const Nav = ({
 }) => {
   return (
     <div className="">
-      <div className="h-[65px] bg-white flex sticky top-0 md:left-0 w-full pl-3 lg:pl-0 justify-between lg:justify-end items-center">
+      <div className="h-[65px] bg-white flex fixed lg:sticky z-90 top-0 md:left-0 w-full pl-3 lg:pl-0 justify-between lg:justify-end items-center">
         {/* -------HAMBURGER ICON------ */}
         <div className="block lg:hidden">
           <div
@@ -59,7 +59,7 @@ const Nav = ({
 
           {/* -------ARROWS------ */}
           <div className="flex gap-2 items-start">
-            <div>
+            <div className="hidden md:block">
               <p className="font-medium text-sm text-text-primary">
                 Oluwatobiloba. D
               </p>

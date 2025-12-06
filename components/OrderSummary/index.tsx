@@ -19,7 +19,7 @@ const OrderSummary = ({ isFormValid }: { isFormValid?: boolean }) => {
 
   return (
     <div className="">
-      <h2 className="font-semibold text-lg md:text-xl tracking-[-0.2px] text-text-primary pb-4">
+      <h2 className="font-semibold text-xl tracking-[-0.2px] text-text-primary pb-4">
         Order Summary
       </h2>
 
