@@ -1,7 +1,7 @@
 import TextInput from "@/components/Input/TextInput";
 import { useForm, SubmitHandler, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CardPaymentValidator } from "@/validators/Checkout/CardPaymentValidator";
+import { CardPaymentValidator } from "@/validators/CardPaymentValidator";
 import { useEffect } from "react";
 import { useCartStore } from "@/store/cart/cart";
 import { TCart } from "@/types/cart";
