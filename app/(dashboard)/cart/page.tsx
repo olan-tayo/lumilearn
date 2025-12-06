@@ -21,7 +21,7 @@ const CartPage = () => {
           <EmptyCart />
         ) : (
           <>
-            <h2 className="font-semibold text-lg md:text-xl lg:text-2xl text-text-primary pb-5">
+            <h2 className="font-semibold text-xl lg:text-2xl text-text-primary pb-5">
               {cart?.length || "0"} Courses in cart
             </h2>
             <div className="flex flex-col md:flex-row gap-15">

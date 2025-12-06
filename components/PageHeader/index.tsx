@@ -11,7 +11,7 @@ const PageHeaderComponent = ({
         {title}
       </h2>
       {description && (
-        <h6 className="font-normal text-xs md:text-sm text-text-secondary">
+        <h6 className="font-normal text-sm text-text-secondary">
           {description}
         </h6>
       )}

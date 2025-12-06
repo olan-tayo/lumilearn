@@ -9,7 +9,7 @@ const SearchComponent = ({
   value?: string;
 }) => {
   return (
-    <div className="border border-border w-[229px] h-[35px] rounded-[1000px] flex gap-2 items-center px-3 py-1">
+    <div className="border border-border w-full md:w-[70%] lg:w-[229px] h-[35px] rounded-[1000px] flex gap-2 items-center px-3 py-1">
       <Image src={search} alt="search icon" width={18} height={18} />
       <input
         type="search"
